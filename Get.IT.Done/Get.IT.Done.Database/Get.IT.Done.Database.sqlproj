@@ -57,10 +57,4 @@
   <ItemGroup>
     <Folder Include="Properties" />
   </ItemGroup>
-  <ItemGroup>
-    <Build Include="ServiceRequest.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="Get.IT.Done.Database.refactorlog" />
-  </ItemGroup>
 </Project>
