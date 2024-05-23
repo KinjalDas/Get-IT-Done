@@ -1,0 +1,6 @@
+@Get.IT.Done.API_HostAddress = http://localhost:5103
+
+GET {{Get.IT.Done.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
