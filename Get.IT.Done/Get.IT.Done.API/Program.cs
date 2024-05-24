@@ -1,5 +1,4 @@
 using Get.IT.Done.DataModel;
-using Get.IT.Done.Users;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
