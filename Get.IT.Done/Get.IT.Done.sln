@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Get.IT.Done.API", "Get.IT.D
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Get.IT.Done.Database", "Get.IT.Done.Database\Get.IT.Done.Database.sqlproj", "{1A405CE8-11DB-4EAD-A305-E0335FDBE991}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Get.IT.Done.DataModel", "..\Get.IT.Done.DataModel\Get.IT.Done\Get.IT.Done.DataModel.csproj", "{DE08FF1C-FED3-4382-B05A-84A3465E3CAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Get.IT.Done.DataModel", "Get.IT.Done.DataModel\Get.IT.Done\Get.IT.Done.DataModel.csproj", "{0084B1B5-18B7-4AC6-AFE9-EAA94D624A8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +25,10 @@ Global
 		{1A405CE8-11DB-4EAD-A305-E0335FDBE991}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A405CE8-11DB-4EAD-A305-E0335FDBE991}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1A405CE8-11DB-4EAD-A305-E0335FDBE991}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{DE08FF1C-FED3-4382-B05A-84A3465E3CAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DE08FF1C-FED3-4382-B05A-84A3465E3CAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DE08FF1C-FED3-4382-B05A-84A3465E3CAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DE08FF1C-FED3-4382-B05A-84A3465E3CAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0084B1B5-18B7-4AC6-AFE9-EAA94D624A8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0084B1B5-18B7-4AC6-AFE9-EAA94D624A8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0084B1B5-18B7-4AC6-AFE9-EAA94D624A8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0084B1B5-18B7-4AC6-AFE9-EAA94D624A8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

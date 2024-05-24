@@ -1,17 +1,18 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Drawing;
+﻿using Get.IT.Done.DataModel.Services;
+using NetTopologySuite.Geometries;
+using System.ComponentModel.DataAnnotations;
 
 namespace Get.IT.Done.DataModel.ServiceRequests;
 
 public class ServiceRequest
 {
+    [Key]
     public Guid Id { get; set; }
 
-    [ForeignKey("User")]
     public Guid UserId { get; set; }
 
-    [ForeignKey("Service")]
     public Guid ServiceId { get; set; }
+    public Service Service { get; set; }
 
     public Point ServiceLocation { get; set; }
 
