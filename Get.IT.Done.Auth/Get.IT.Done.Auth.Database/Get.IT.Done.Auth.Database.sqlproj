@@ -57,4 +57,13 @@
   <ItemGroup>
     <Folder Include="Properties" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="AspNetRoles.sql" />
+    <Build Include="AspNetUsers.sql" />
+    <Build Include="AspNetRoleClaims.sql" />
+    <Build Include="AspNetUserClaims.sql" />
+    <Build Include="AspNetUserLogins.sql" />
+    <Build Include="AspNetUserRoles.sql" />
+    <Build Include="AspNetUserTokens.sql" />
+  </ItemGroup>
 </Project>
