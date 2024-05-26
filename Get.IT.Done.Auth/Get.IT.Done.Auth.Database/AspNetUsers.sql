@@ -2,7 +2,7 @@
 (
 	[Id] uniqueidentifier NOT NULL,
     [ProfilePicture] nvarchar(max) NULL,
-    [Address] nvarchar(50) NOT NULL,
+    [Address] nvarchar(50) NULL,
     [AadharId] nvarchar(max) NULL,
     [UserName] nvarchar(256) NULL,
     [NormalizedUserName] nvarchar(256) NULL,

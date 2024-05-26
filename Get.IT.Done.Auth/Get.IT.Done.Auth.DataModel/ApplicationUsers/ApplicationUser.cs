@@ -8,7 +8,7 @@ public class ApplicationUser : IdentityUser<Guid>
     public Uri? ProfilePicture { get; set; }
 
     [MaxLength(50)]
-    public string Address { get; set; }
+    public string? Address { get; set; }
 
     [RegularExpression("^[0-9]{12}$")]
     public string? AadharId { get; set; }

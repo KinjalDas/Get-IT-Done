@@ -1,7 +1,12 @@
 using Get.IT.Done.Auth.DataModel;
+using Get.IT.Done.Auth.DataModel.ApplicationUserRoles;
 using Get.IT.Done.Auth.DataModel.ApplicationUsers;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,11 +19,34 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<GetITDoneAuthDbContext>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("DbContext")));
 builder.Services
-    .AddIdentityApiEndpoints<ApplicationUser>()
+    .AddIdentity<ApplicationUser, ApplicationUserRole>(o =>
+    {
+        o.User.RequireUniqueEmail = true;
+    })
     .AddEntityFrameworkStores<GetITDoneAuthDbContext>()
-    .AddDefaultTokenProviders();
+    .AddDefaultTokenProviders()
+    .AddSignInManager();
 
-
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.SaveToken = false;
+    options.RequireHttpsMetadata = false;
+    options.TokenValidationParameters = new TokenValidationParameters()
+    {
+        ValidateIssuer = false,
+        ValidateAudience = false,
+        ValidAudience = builder.Configuration["JWT:ValidAudience"],
+        ValidIssuer = builder.Configuration["JWT:ValidIssuer"],
+        ClockSkew = TimeSpan.Zero,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"]))
+    };
+});
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
@@ -30,7 +58,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
