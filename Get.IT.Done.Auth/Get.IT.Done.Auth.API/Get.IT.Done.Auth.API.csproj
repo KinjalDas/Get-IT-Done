@@ -21,10 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Get.IT.Done.Auth.DataModel\Get.IT.Done.Auth.DataModel.csproj" />
   </ItemGroup>
 

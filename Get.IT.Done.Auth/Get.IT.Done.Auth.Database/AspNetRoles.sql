@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[AspNetRoles]
 (
 	[Id] uniqueidentifier NOT NULL,
-    [RoleDescription] nvarchar(50) NOT NULL,
+    [RoleDescription] nvarchar(50) NULL,
     [Name] nvarchar(256) NULL,
     [NormalizedName] nvarchar(256) NULL,
     [ConcurrencyStamp] nvarchar(max) NULL,
