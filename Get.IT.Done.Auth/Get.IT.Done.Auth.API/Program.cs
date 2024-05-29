@@ -1,6 +1,8 @@
 using Get.IT.Done.Auth.DataModel;
 using Get.IT.Done.Auth.DataModel.ApplicationUserRoles;
 using Get.IT.Done.Auth.DataModel.ApplicationUsers;
+using Get.IT.Done.Auth.DataModel.Repositories;
+using Get.IT.Done.Auth.DataModel.Repositories.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +19,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
 builder.Services.AddDbContext<GetITDoneAuthDbContext>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("DbContext")));
 builder.Services
     .AddIdentity<ApplicationUser, ApplicationUserRole>(o =>
@@ -25,7 +29,7 @@ builder.Services
     })
     .AddEntityFrameworkStores<GetITDoneAuthDbContext>()
     .AddDefaultTokenProviders()
-    .AddSignInManager();
+    .AddSignInManager<SignInManager<ApplicationUser>>();
 
 builder.Services.AddAuthentication(options =>
 {
@@ -34,12 +38,14 @@ builder.Services.AddAuthentication(options =>
     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 }).AddJwtBearer(options =>
 {
-    options.SaveToken = false;
+    options.SaveToken = true;
     options.RequireHttpsMetadata = false;
     options.TokenValidationParameters = new TokenValidationParameters()
     {
-        ValidateIssuer = false,
-        ValidateAudience = false,
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateIssuerSigningKey = true,
+        ValidateLifetime = true,
         ValidAudience = builder.Configuration["JWT:ValidAudience"],
         ValidIssuer = builder.Configuration["JWT:ValidIssuer"],
         ClockSkew = TimeSpan.Zero,
